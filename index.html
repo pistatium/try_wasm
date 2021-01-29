@@ -41,9 +41,17 @@ license that can be found in the LICENSE file.
 			await go.run(inst);
 			inst = await WebAssembly.instantiate(mod, go.importObject); // reset instance
 		}
+
+		setInterval(function () {
+			document.getElementById("jsText").innerText = new Date().toISOString();
+		}, 1);
 	</script>
 
 	<button onClick="run();" id="runButton" disabled>Run</button>
+	<h2>wasm</h2>
+	<div id="text"></div>
+	<h2>Javascript</h2>
+	<div id="jsText"></div>
 </body>
 
 </html>
